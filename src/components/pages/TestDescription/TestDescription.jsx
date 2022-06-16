@@ -9,6 +9,7 @@ import Footer from "../../Footer";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import { fetchTests } from "../../../feateures/testsSlice";
+import Description from "./Description";
 
 const TestDescription = () => {
   const dispatch = useDispatch();
@@ -21,20 +22,19 @@ const TestDescription = () => {
     dispatch(fetchTests(id));
   }, [dispatch, id]);
 
-  console.log(test);
-
   return (
     <div className="test-desctiption">
       <Header />
       {test.map((item) => {
         if (item._id === id) {
           return (
-          <div className="test_info">
-            <div className="test_name">{item.testName}</div>
-            <div className="test_description">{item.description}</div>
-            <button>Начать тест</button>
-          </div>
-        );
+            <Description
+              key={item._id}
+              description={item.description}
+              testName={item.testName}
+              id = {item._id}
+            />
+          );
         }
       })}
       <Footer />
