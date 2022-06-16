@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
+.footer {
+  background-image: linear-gradient(90deg, rgba(66, 66, 66, 1), rgba(51, 49, 49, 1));
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 80px;
+}
+.footer_logo_name {
+  font-size: 60px;
+  font-weight: 400;
+  font-family: 'Quantico', sans-serif;
+  cursor: default;
+}
+footer p {
+  font-size: 15;
+  width: 400px;
+  margin-top: 35px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+  cursor: default;
+}
+.icons {
+  display: block;
+  font-size: 25px;
+  margin-top: 35px;
+}
+.icons svg {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.lists_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+}
+.list li {
+  width: fit-content;
+  margin: 15px 0 0 0;
+  cursor: pointer;
+}
+.list:first-child li {
+  margin-right: 100px;
+}
+.list li:hover {
+  color: rgb(10, 120, 67);
+}
