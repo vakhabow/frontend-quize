@@ -5,7 +5,7 @@ const initialState = {
 }
 
 export const fetchTests = createAsyncThunk(
-    'tests/fetch',
+    'tests/fetchTests',
     async (_, thunkAPI) => {
         try {
             const res = await fetch("/tests");
@@ -17,7 +17,20 @@ export const fetchTests = createAsyncThunk(
     }
 )
 
-export const testsReducer = createSlice({
+export const fetchDescriptionTest = createAsyncThunk(
+    'Description/fetchDescriptionTest',
+    async (id, thunkAPI) => {
+        try {
+            const res = await fetch(`/tests/${id}`);
+            const data = await res.json();
+            return data.reverse()
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e)
+        }
+    }
+)
+
+export const testsSlice = createSlice({
     name: 'tests',
     initialState,
     reducers: {},
@@ -26,7 +39,10 @@ export const testsReducer = createSlice({
             .addCase(fetchTests.fulfilled, (state, action) => {
                 state.tests = action.payload;
             })
+            .addCase(fetchDescriptionTest.fulfilled, (state, action) => {
+                state.tests.push(action.payload)
+            })
     }
 })
 
-export default testsReducer.reducer;
+export default testsSlice.reducer;
