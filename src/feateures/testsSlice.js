@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    tests: []
+    tests: [],
+    currentTest:{},
 }
 
 export const fetchTests = createAsyncThunk(
