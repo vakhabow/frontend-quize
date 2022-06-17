@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./testDescription.module.css";
+// import styles from "./testDescription.module.css";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchDescriptionTest } from "../../../feateures/testsSlice";
 import { useSelector } from "react-redux";
-import Header from "../../Header";
-import Footer from "../../Footer";
-import { Link } from "react-router-dom";
+// import Header from "../../Header";
+// import Footer from "../../Footer";
+// import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 import { fetchTests } from "../../../feateures/testsSlice";
 import Description from "./Description";
@@ -24,7 +24,7 @@ const TestDescription = () => {
 
   return (
     <div className="test-desctiption">
-      <Header />
+      {/* <Header /> */}
       {test.map((item) => {
         if (item._id === id) {
           return (
@@ -37,7 +37,7 @@ const TestDescription = () => {
           );
         }
       })}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

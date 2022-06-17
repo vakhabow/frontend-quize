@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Test = ({ test, answers }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -22,7 +23,7 @@ const Test = ({ test, answers }) => {
       setShowScore(true);
     }
 
-    checkAnswer.push({ answer, id });
+    setCheckAnswer([...checkAnswer, { answer, id }]);
   };
 
   const handleRefresh = () => {
@@ -32,6 +33,12 @@ const Test = ({ test, answers }) => {
     setCheckAnswer([]);
   };
 
+  // if(showScore) {
+  //   useEffect(() => {
+
+  //   }, [])
+  // }
+
   return (
     <div>
       <div className="app">
@@ -39,6 +46,17 @@ const Test = ({ test, answers }) => {
           <div className="section_score">
             <div>
               Правильных ответов {score} из {test.questions.length}
+              {score < test.questions.length / 3 ? (
+                <div className="result">Все плохо. Учи</div>
+              ) : score < test.questions.length / 2 ? (
+                <div className="result">Могло быть и хуже</div>
+              ) : score < test.questions.length / 1.5 ? (
+                <div className="result">Хороший результат</div>
+              ) : score === test.questions.length / 1 ? (
+                <div className="result">Все правильно. Молодец</div>
+              ) : score < test.questions.length / 1 ? (
+                <div className="result">Ты был близок, но недостаточно</div>
+              ): ''}
               {answers.map((item) => {
                 return (
                   <>
@@ -47,7 +65,7 @@ const Test = ({ test, answers }) => {
                       if (elem.isTrue) {
                         return (
                           <div className="aaa">
-                            <div style={{ color: "green" }} className="ans">
+                            <div style={{ color: "limegreen" }} className="ans">
                               {elem.answer}
                             </div>
                             {item.answers.map((element) => {

@@ -17,17 +17,11 @@ const TestPage = () => {
 
   const tests = useSelector((state) => state.test.tests);
 
-  return( 
-    tests.map((test) => {
+  return tests.map((test) => {
     if (test._id === id) {
-      
-      return (
-        <Test key={test._id} test={test} answers={test.questions}/>
-      )
+      return <Test key={test._id} test={test} answers={test.questions} />;
     }
-  })
-  
-  )
+  });
 };
 
 export default TestPage;
