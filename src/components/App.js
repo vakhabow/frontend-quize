@@ -7,6 +7,7 @@ import SignupPage from './pages/SignupPage/SignupPage';
 import TestDescription from './pages/TestDescription/TestDescription';
 import TestPage from './pages/TestPage/TestPage';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
+import TestsByCategories from './pages/AllTestsPage/TestsByCategories';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='/testdescription/:id' element={<TestDescription />} />
         <Route path='/test/:id' element={<TestPage />} />
         <Route path='/welcome' element={<WelcomePage />} />
+        <Route path='/category/:id' element={<TestsByCategories />} />
       </Routes>
     </div>
   );
