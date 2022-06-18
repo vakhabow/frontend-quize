@@ -4,7 +4,7 @@ const initialState = {
   signingUp: false,
   signingIn: false,
   registered: false,
-  error: null,
+  error: false,
   token: localStorage.getItem("token"),
 };
 
@@ -21,9 +21,9 @@ export const createUser = createAsyncThunk(
       });
 
       const data = await res.json();
-
-      if (data.error) {
-        return thunkAPI.rejectWithValue(data.error);
+      console.log(data);
+      if (!res.ok) {
+        return thunkAPI.rejectWithValue({ error: data.error });
       } else {
         return thunkAPI.fulfillWithValue(data);
       }
@@ -46,7 +46,8 @@ export const doLogin = createAsyncThunk(
       });
 
       const data = await res.json();
-      if (data.error) {
+
+      if (!res.ok) {
         return thunkAPI.rejectWithValue({ error: data.error });
       } else {
         localStorage.setItem("token", data.token);
@@ -69,12 +70,12 @@ export const authSlice = createSlice({
       })
       .addCase(createUser.fulfilled, (state, action) => {
         state.signingUp = false;
-        state.error = null;
+        state.error = false;
         state.registered = true;
       })
       .addCase(createUser.rejected, (state, action) => {
         state.signingUp = false;
-        state.error = action.payload;
+        state.error = true;
       })
       .addCase(doLogin.pending, (state, action) => {
         state.signingIn = true;
@@ -86,8 +87,8 @@ export const authSlice = createSlice({
       })
       .addCase(doLogin.rejected, (state, action) => {
         state.signingIn = false;
-        state.error = action.payload;
-      });
+        state.error = true;
+      })
   },
 });
 

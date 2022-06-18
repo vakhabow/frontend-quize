@@ -3,10 +3,11 @@ import styles from "./SignupPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { createUser } from "../../../feateures/authSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -48,7 +49,7 @@ const SignupPage = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(createUser({ login, password }));
+    dispatch(createUser({ login, password })).unwrap().then(() => navigate('/signin')).catch(() => console.log(123));
     setLogin("");
     setPassword("");
   };
@@ -75,6 +76,8 @@ const SignupPage = () => {
           <div className={styles.auth__form__title}>Регистрация</div>
           {error}
           <div className={styles.sign__up}>
+            {error ? <div>Ytdsvhbsv</div> : ""}
+            {console.log(error)}
             <input
               onBlur={(e) => blurHandle(e)}
               className={styles.email__input}

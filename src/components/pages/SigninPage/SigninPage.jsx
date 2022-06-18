@@ -15,6 +15,7 @@ const SigninPage = () => {
   const [passwordError, setPasswordError] = useState("Заполните поле");
 
   const signingIn = useSelector((state) => state.auth.signingIn);
+  const error = useSelector((state) => state.auth.error)
 
   const handleChangeLogin = (e) => {
     setLogin(e.target.value);
@@ -67,6 +68,7 @@ const SigninPage = () => {
         <div className={styles.auth__form__wrap}>
           <div className={styles.auth__form__title}>Вход</div>
           <div className={styles.sign__up}>
+            {error ? <div>sdfh</div> : ""}
             <input
               onBlur={(e) => blurHandle(e)}
               className={styles.email__input}
