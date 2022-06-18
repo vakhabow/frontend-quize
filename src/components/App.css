@@ -3,3 +3,8 @@
     padding: 0;
     box-sizing: border-box;
 }
+.app {
+    max-width: 2048px;
+    margin: auto;
+    overflow: hidden;
+}

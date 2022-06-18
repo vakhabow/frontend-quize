@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
 .footer {
   background-image: linear-gradient(90deg, rgba(66, 66, 66, 1), rgba(51, 49, 49, 1));
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 80px;
+  padding: 10px 80px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .footer_logo_name {
   font-size: 60px;
@@ -43,12 +45,41 @@ footer p {
 }
 .list li {
   width: fit-content;
-  margin: 15px 0 0 0;
+  margin: 10px 0 0 0;
   cursor: pointer;
+  font-size: 14px;
 }
 .list:first-child li {
   margin-right: 100px;
 }
 .list li:hover {
   color: rgb(10, 120, 67);
+}
+@media (max-width: 1280px) {
+  .lists_wrap {
+    display: none;
+  }
+  .footer_info {
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 960px) {
+  .footer_info p {
+    display: none;
+  }
+  .footer_info {
+    width: 600px;
+  }
+}
+@media (max-width: 414px) {
+  .footer_info h1{
+    display: none;
+  }
+  .icons {
+    margin: 10px auto 0 auto;
+    padding: 20px 0;
+  }
 }
