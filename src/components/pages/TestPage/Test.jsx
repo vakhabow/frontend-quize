@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Comments from "./Comments"
 
 const Test = ({ test, answers }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -97,7 +98,7 @@ const Test = ({ test, answers }) => {
                 Попробовать еще раз
               </button>
             </div>
-            <div className="comments">Место для комментариев</div>
+            <div className="comments"><Comments /></div>
           </div>
         ) : (
           <div className="quiz">
@@ -131,6 +132,7 @@ const Test = ({ test, answers }) => {
           </div>
         )}
       </div>
+      
     </div>
   );
 };
