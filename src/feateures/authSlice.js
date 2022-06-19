@@ -84,12 +84,11 @@ export const authSlice = createSlice({
         state.signingIn = false;
         state.error = null;
         state.token = action.payload.token;
-        console.log(action.payload.token)
       })
       .addCase(doLogin.rejected, (state, action) => {
         state.signingIn = false;
         state.error = true;
-      })
+      });
   },
 });
 
