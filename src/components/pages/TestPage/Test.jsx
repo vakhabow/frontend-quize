@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Test = ({ test, answers }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -33,17 +33,15 @@ const Test = ({ test, answers }) => {
     setCheckAnswer([]);
   };
 
-  // if(showScore) {
-  //   useEffect(() => {
-
-  //   }, [])
-  // }
-
   return (
     <div>
       <div className="app">
         {showScore ? (
           <div className="section_score">
+            <div className="all_tests">
+              <Link to={"/tests"}>К тестам</Link>
+            </div>
+            <div className="your_results">Ваши результаты:</div>
             <div>
               Правильных ответов {score} из {test.questions.length}
               {score < test.questions.length / 3 ? (
@@ -56,7 +54,9 @@ const Test = ({ test, answers }) => {
                 <div className="result">Все правильно. Молодец</div>
               ) : score < test.questions.length / 1 ? (
                 <div className="result">Ты был близок, но недостаточно</div>
-              ): ''}
+              ) : (
+                ""
+              )}
               {answers.map((item) => {
                 return (
                   <>
@@ -97,6 +97,7 @@ const Test = ({ test, answers }) => {
                 Попробовать еще раз
               </button>
             </div>
+            <div className="comments">Место для комментариев</div>
           </div>
         ) : (
           <div className="quiz">

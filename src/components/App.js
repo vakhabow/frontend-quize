@@ -19,8 +19,8 @@ function App() {
       <Routes>
         <Route path='/tests' element={<AllTestsPage />} />
         <Route path='/profile/:id' element={<Profile />} />
-        <Route path='/signin' element={!token ? <Navigate to="/tests"/> : <SigninPage />} />
-        <Route path='/signup' element={!token ? <Navigate to="/tests"/> : <SignupPage />} />
+        <Route path='/signin' element={token ? <Navigate to="/tests"/> : <SigninPage />} />
+        <Route path='/signup' element={token ? <Navigate to="/tests"/> : <SignupPage />} />
         <Route path='/testdescription/:id' element={<TestDescription />} />
         <Route path='/test/:id' element={<TestPage />} />
         <Route path='/welcome' element={<WelcomePage />} />

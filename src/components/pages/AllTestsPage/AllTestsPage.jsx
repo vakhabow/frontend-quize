@@ -15,10 +15,9 @@ const AllTestsPage = () => {
   const categories = useSelector((state) => state.test.categories);
   const tests = useSelector((state) => state.test.tests);
   const favorite = useSelector((state) => state.test);
-console.log(favorite);
+
   useEffect(() => {
     dispatch(fetchCategories());
-    dispatch(fetchTestsByCategoryId(id));
     dispatch(fetchTests());
   }, [dispatch, id]);
 

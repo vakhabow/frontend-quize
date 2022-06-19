@@ -77,7 +77,6 @@ const SignupPage = () => {
           {error}
           <div className={styles.sign__up}>
             {error ? <div>Ytdsvhbsv</div> : ""}
-            {console.log(error)}
             <input
               onBlur={(e) => blurHandle(e)}
               className={styles.email__input}
