@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-
 const initialState = {
     tests: [],
     categories: [],
-    testsByCat: []
+    testsByCat: [],
+    favoriteTests: []
 }
 
 export const fetchTests = createAsyncThunk(
@@ -12,7 +12,7 @@ export const fetchTests = createAsyncThunk(
         try {
             const res = await fetch("/tests");
             const data = await res.json();
-            return data.reverse()
+            return data
         } catch (e) {
             return thunkAPI.rejectWithValue(e)
         }
@@ -25,7 +25,7 @@ export const fetchCategories = createAsyncThunk(
         try {
             const res = await fetch('/categories');
             const data = await res.json();
-            return data.reverse()
+            return data
         } catch (e) {
             return thunkAPI.rejectWithValue(e)
         }
@@ -33,12 +33,12 @@ export const fetchCategories = createAsyncThunk(
 )
 
 export const fetchTestsByCategoryId = createAsyncThunk(
-    'tests/fetchTestsByCategoryId', 
+    'tests/fetchTestsByCategoryId',
     async (id, thunkAPI) => {
         try {
             const res = await fetch(`/tests/category/${id}`);
             const data = await res.json();
-            return data.reverse();
+            return data
         } catch (e) {
             return thunkAPI.rejectWithValue(e)
         }
@@ -51,10 +51,34 @@ export const fetchDescriptionTest = createAsyncThunk(
         try {
             const res = await fetch(`/tests/${id}`);
             const data = await res.json();
-            return data.reverse()
+            return data
         } catch (e) {
             return thunkAPI.rejectWithValue(e)
         }
+    }
+)
+
+export const fetchAddToFavorite = createAsyncThunk(
+    'Favorite/fetchAddToFavorite',
+    async (id, thunkAPI) => {
+
+        try {
+            const state = thunkAPI.getState()
+            const res = await fetch(`/users/tests/${id}/favorite`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        Authorization: `Bearer ${ state.auth.token }`,
+
+            },
+    }
+)
+const data = await res.json();
+
+return data;
+        } catch (e) {
+    return thunkAPI.rejectWithValue(e)
+}
     }
 )
 
@@ -75,6 +99,9 @@ export const testsSlice = createSlice({
             })
             .addCase(fetchTestsByCategoryId.fulfilled, (state, action) => {
                 state.testsByCat = action.payload
+            })
+            .addCase(fetchAddToFavorite.fulfilled, (state, action) => {
+                state.favoriteTests = action.payload.favoriteTest
             })
     }
 })

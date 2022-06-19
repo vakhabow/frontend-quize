@@ -3,13 +3,18 @@ import styles from './Header.module.css';
 import { BiSearch, BiUser } from 'react-icons/bi';
 import Sidebar from '../Sidebar/index';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-
     const [close, setClose] = useState(false);
+    const navigate = useNavigate();
 
     const handleClose = () => {
-        setClose(!close)
+        setClose(!close);
+    }
+
+    const handleProfile = () => {
+        navigate(`/profile/edit`);
     }
 
     return (
@@ -27,7 +32,7 @@ const Header = () => {
                 <input className={styles.search} placeholder='Поиск по тестам'/>
                 <BiSearch className={styles.search_icon}/>
             </div>
-            <div className={styles.office}>
+            <div className={styles.office} onClick={handleProfile}>
                 <BiUser className={styles.user_icon}/>
             </div>
         </header>

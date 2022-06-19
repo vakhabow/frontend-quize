@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTestsByCategoryId } from "../../../feateures/testsSlice";
+import './index.css'
 
 const TestsByCategories = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const TestsByCategories = () => {
   const testsByCat = useSelector((state) => state.test.testsByCat);
 
   return (
-    <div>
+    <div className="aaa">
         {testsByCat.map(item => {
             return (
               <Link to={`/testdescription/${item._id}`}>{item.testName}</Link>  

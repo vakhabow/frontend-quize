@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import Header from "../../Header/index";
 import Footer from "../../Footer/index";
 import styles from "./Welcome.module.css";
 import { useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import Header from "../../Header";
 
 const WelcomePage = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const WelcomePage = () => {
 
   return (
     <>
-      <Header />
+    <Header />
       <main className={styles.main}>
         <section className={styles.section}>
           <div className={styles.info}>
