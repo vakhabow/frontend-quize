@@ -7,7 +7,7 @@ import { GrFacebook } from 'react-icons/gr';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div>
+      <div className={styles.footer_info}>
         <h1 className={styles.footer_logo_name}>Quizee</h1>
         <p>Квизи — интерактивные тесты онлайн, бесплатно. © 2022 «Квизи»</p>
         <div className={styles.icons}>

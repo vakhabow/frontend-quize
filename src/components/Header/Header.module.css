@@ -1,57 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Quantico&display=swap');
 .header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: whitesmoke;
-  padding: 5px 30px;
+  background-color: #fff;
+  padding: 0 30px;
   align-items: center;
   position: fixed;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.668);
 }
 .burger {
   width: 30px;
   cursor: pointer;
+  z-index: 2;
 }
-.burger span {
+.burger_line {
   display: block;
   height: 4px;
-  background-color: #626262;
+  background-color: rgb(10, 106, 52);
   margin-top: 7px;
   border-radius: 3px;
+  transition: .3s;
+}
+.openOne, .openTwo, .openThree {
+  background-color: #fff;
+}
+.openOne {
+  transform: translateY(12px) rotate(225deg);
+}
+.openTwo {
+  transform: scaleX(0);
+}
+.openThree {
+  transform: translateY(-10px) rotate(315deg);
 }
 .logo_name {
   width: 190px;
-  color: #966161;
-  font-size: 60px;
+  font-size: 50px;
+  color: white;
   font-family: 'Quantico', sans-serif;
   cursor: pointer;
-  margin-right: 650px;
+  margin-right: 45%;
+  color: rgb(10, 106, 52);
 }
 .search_wrap {
   position: relative;
   overflow: hidden;
+  width: 23%;
 }
 .search {
   display: block;
-  width: 336px;
+  width: 100%;
   background-color: #F0F0F0;
   border-radius: 9px;
-  padding: 15px 0 15px 15px;
+  padding: 10px 0 10px 10px;
   border: none;
   outline: none;
   font-size: 20px;
-  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.25) inset;
   color: #626262;
   transition: .4s;
+  box-shadow: 0 0 12px 0 rgba(44, 43, 43, 0.554) inset;
 }
 .search_icon {
   display: block;
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 13px;
+  top: 12px;
   left: -100px;
-  font-size: 30px;
+  font-size: 20px;
   color: #626262;
   transition: .4s;
 }
@@ -59,7 +77,7 @@
   left: 11px;
 }
 .search:focus {
-  padding-left: 50px;
+  padding-left: 40px;
 }
 .office {
   width: 50px;
@@ -68,6 +86,7 @@
   background-color: #5E5E5E;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
 }
 .user_icon {
   color: white;
@@ -77,4 +96,35 @@
 }
 .office:hover {
   background-color: #727272;
+}
+
+@media (min-width: 2048px) {
+  .header {
+    width: 2048px;
+  }
+}
+@media (max-width: 414px) {
+  .search {
+    display: none;
+  }
+  .logo_name {
+    margin: 0;
+    text-align: center;
+  }
+}
+@media (max-width: 860px) {
+  .logo_name {
+    margin-right: 30%;
+  } 
+}
+@media (max-width: 650px) {
+  .logo_name {
+    margin-right: 0;
+  }
+  .search {
+    display: none;
+  }
+  .logo_name {
+    text-align: center;
+  }
 }

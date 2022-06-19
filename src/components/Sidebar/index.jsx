@@ -1,10 +1,13 @@
 import React from 'react';
+import styles from './Sidebar.module.css';
 
-const Sidebar = () => {
+const Sidebar = ({ close }) => {
     return (
-        <div>
-            
-        </div>
+        <aside className={`${styles.rightbar} ${close ? styles.switch : ''}`}>
+            <ul>
+                <li>Тесты</li>
+            </ul>
+        </aside>
     );
 };
 

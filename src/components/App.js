@@ -9,6 +9,8 @@ import TestPage from './pages/TestPage/TestPage';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
 import TestsByCategories from './pages/AllTestsPage/TestsByCategories';
 import { useSelector } from 'react-redux';
+import Favorites from './pages/Profile/Favorites';
+import Edit from './pages/Profile/Edit';
 
 function App() {
 
@@ -18,7 +20,11 @@ function App() {
     <div className="app">
       <Routes>
         <Route path='/tests' element={<AllTestsPage />} />
-        <Route path='/profile/:id' element={<Profile />} />
+        <Route path='/profile' element={<Profile />}>
+          <Route path='favorites' element={<Favorites />}/>
+          <Route path='completed' element={<div>Hello</div>}/>
+          <Route path='edit' element={<Edit />}/>
+        </Route>
         <Route path='/signin' element={token ? <Navigate to="/tests"/> : <SigninPage />} />
         <Route path='/signup' element={token ? <Navigate to="/tests"/> : <SignupPage />} />
         <Route path='/testdescription/:id' element={<TestDescription />} />
