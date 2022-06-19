@@ -3,7 +3,7 @@ const initialState = {
     tests: [],
     categories: [],
     testsByCat: [],
-    favoriteTests: []
+    favoriteTests: [],
 }
 
 export const fetchTests = createAsyncThunk(
@@ -60,25 +60,23 @@ export const fetchDescriptionTest = createAsyncThunk(
 
 export const fetchAddToFavorite = createAsyncThunk(
     'Favorite/fetchAddToFavorite',
-    async (id, thunkAPI) => {
+    async (object, thunkAPI) => {
 
         try {
             const state = thunkAPI.getState()
-            const res = await fetch(`/users/tests/${id}/favorite`,
+            const res = await fetch(`/users/tests/${object.id}/favorite`,
                 {
                     method: "PATCH",
                     headers: {
-                        Authorization: `Bearer ${ state.auth.token }`,
-
-            },
-    }
-)
-const data = await res.json();
-
-return data;
+                        Authorization: `Bearer ${state.auth.token}`,
+                    },
+                }
+            )
+            const data = await res.json();
+            return data;
         } catch (e) {
-    return thunkAPI.rejectWithValue(e)
-}
+            return thunkAPI.rejectWithValue(e)
+        }
     }
 )
 

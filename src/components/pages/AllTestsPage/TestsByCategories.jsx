@@ -15,12 +15,12 @@ const TestsByCategories = () => {
   }, [dispatch, id]);
 
   const testsByCat = useSelector((state) => state.test.testsByCat);
-
+  
   return (
     <div className="aaa">
         {testsByCat.map(item => {
             return (
-              <Link to={`/testdescription/${item._id}`}>{item.testName}</Link>  
+              <Link key={item._id} to={`/testdescription/${item._id}`}>{item.testName}</Link>  
             )
         })}
     </div>
