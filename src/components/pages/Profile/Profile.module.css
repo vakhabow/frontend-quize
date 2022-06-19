@@ -1,0 +1,125 @@
+.profile_supreme {
+  background-image: linear-gradient(rgb(8, 136, 78), rgb(20, 97, 81));
+  height: 100vh;
+}
+.profile_wrap {
+  width: 1000px;
+  margin: auto;
+  text-align: center;
+  padding-top: 130px;
+}
+.img_wrap {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: lightgray;
+  margin: auto;
+  margin-bottom: 40px;
+  cursor: pointer;
+  transition: .4s;
+  position: relative;
+  overflow: hidden;
+}
+.img_wrap img {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.img_wrap:hover {
+  box-shadow: 0px 10px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.user_icon {
+  margin-top: 40px;
+  font-size: 100px;
+  color: white;
+  transition: .4s;
+}
+.camera {
+  position: absolute;
+  top: 65px;
+  left: 70px;
+  font-size: 60px;
+  color: white;
+}
+.blur {
+  opacity: 0.3;
+}
+.links {
+  width: 600px;
+  margin: 20px auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.link {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  padding-bottom: 7px;
+}
+.active {
+  border-bottom: 3px solid;
+}
+.favorites {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.favorites p {
+  margin-top: 30px;
+  width: 30%;
+  text-align: center;
+  color: rgb(20, 97, 81);
+  font-family: sans-serif;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 7px;
+  padding: 15px;
+  transition: .3s;
+  display: inline-block;
+  vertical-align: middle;
+}
+.favorites p:hover {
+  box-shadow: 0px 5px 8px 0 rgba(34, 60, 80, 0.817);
+  transform: translateY(-5px);
+}
+.favorites p:active {
+  transform: scale(0.95);
+}
+.edit_wrap {
+  width: fit-content;
+  margin: auto;
+  margin-top: 30px;
+}
+.edit_wrap input {
+  display: block;
+  width: 400px;
+  height: 40px;
+  margin-top: 15px;
+  border-radius: 10px;
+  color: rgb(88, 87, 87);
+  padding-left: 10px;
+  border: none;
+  background-color: lightgray;
+  font-size: 20px;
+  outline: none;
+}
+.edit_wrap button {
+  display: block;
+  padding: 12px;
+  margin: 15px auto 0 auto;
+  border-radius: 10px;
+  border: none;
+  background-image: linear-gradient(rgba(46, 91, 86, 1), rgba(33, 85, 69, 1));
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.626);
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  transition: .4s;
+}
+.edit_wrap button:active {
+  transform: scale(0.95);
+}
