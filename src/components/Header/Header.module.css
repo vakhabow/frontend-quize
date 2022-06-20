@@ -97,6 +97,11 @@
 .office:hover {
   background-color: #727272;
 }
+.office img {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
 
 @media (min-width: 2048px) {
   .header {

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import './test.css';
 
 const Test = ({ test, answers }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -35,12 +36,9 @@ const Test = ({ test, answers }) => {
 
   return (
     <div>
-      <div className="app">
+      <div className="ap">
         {showScore ? (
           <div className="section_score">
-            <div className="all_tests">
-              <Link to={"/tests"}>К тестам</Link>
-            </div>
             <div className="your_results">Ваши результаты:</div>
             <div>
               Правильных ответов {score} из {test.questions.length}
@@ -60,11 +58,11 @@ const Test = ({ test, answers }) => {
               {answers.map((item) => {
                 return (
                   <>
-                    <div>{item.questName}</div>
+                    <div className='quest_name'>{item.questName}</div>
                     {item.answers.map((elem) => {
                       if (elem.isTrue) {
                         return (
-                          <div className="aaa">
+                          <div className="question_wrapper">
                             <div style={{ color: "limegreen" }} className="ans">
                               {elem.answer}
                             </div>
@@ -75,8 +73,7 @@ const Test = ({ test, answers }) => {
                                     if (item.answer.id === element._id) {
                                       return (
                                         <div
-                                          style={{ color: "red" }}
-                                          className="bbb"
+                                          className='bbb'
                                         >
                                           {item.answer.answer}
                                         </div>
@@ -93,16 +90,19 @@ const Test = ({ test, answers }) => {
                   </>
                 );
               })}
+              <div className="result_btns">
               <button onClick={handleRefresh} className="refresh_btn">
                 Попробовать еще раз
               </button>
+              <Link to={"/tests"} className='back-tests'>К тестам</Link>
+              </div>
             </div>
             <div className="comments">Место для комментариев</div>
           </div>
         ) : (
           <div className="quiz">
             <div className="question_section">
-              <div className="question_count">
+              <div className="question_wrap">
                 <div className="question-count">
                   <span>{currentQuestion + 1}</span> / {test.questions.length}
                 </div>
@@ -122,6 +122,7 @@ const Test = ({ test, answers }) => {
                         id: answer._id,
                       })
                     }
+                    className='answer_button'
                   >
                     {answer.answer}
                   </button>

@@ -4,8 +4,20 @@ import { BiSearch, BiUser } from 'react-icons/bi';
 import Sidebar from '../Sidebar/index';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { profileFetch } from '../../feateures/profileSlice';
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
+
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.profile.user);
+
+    useEffect(() => {
+        dispatch(profileFetch());
+      }, [dispatch]);
+
     const [close, setClose] = useState(false);
     const navigate = useNavigate();
 
@@ -25,7 +37,7 @@ const Header = () => {
                 <span className={`${styles.burger_line} ${close ? styles.openThree : ''}`}/>
             </div>
             <Sidebar close={close}/>
-            <h1 className={styles.logo_name}>
+            <h1 className={styles.logo_name} onClick={() => navigate('/tests')}>
                 Quizee
             </h1>
             <div className={styles.search_wrap}>
@@ -33,7 +45,9 @@ const Header = () => {
                 <BiSearch className={styles.search_icon}/>
             </div>
             <div className={styles.office} onClick={handleProfile}>
-                <BiUser className={styles.user_icon}/>
+                {!user.avatar ? <BiUser className={styles.user_icon}/> : 
+                <img src={`/images/${user.avatar}`} alt={user.avatar}/>
+                }
             </div>
         </header>
     );
