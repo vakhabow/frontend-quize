@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Header.module.css';
 import { BiSearch, BiUser } from 'react-icons/bi';
-import Sidebar from '../Sidebar/index';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Sidebar from '../Sidebar';
 
 const Header = () => {
     const [close, setClose] = useState(false);
