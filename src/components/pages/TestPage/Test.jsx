@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './test.css';
+import Comments from "./Comments";
 
 const Test = ({ test, answers }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -97,7 +98,7 @@ const Test = ({ test, answers }) => {
               <Link to={"/tests"} className='back-tests'>К тестам</Link>
               </div>
             </div>
-            <div className="comments">Место для комментариев</div>
+            <div className="comments">{<Comments />}</div>
           </div>
         ) : (
           <div className="quiz">
