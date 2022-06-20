@@ -6,7 +6,7 @@ const initialState = {
   registered: false,
   error: false,
   token: localStorage.getItem("token"),
-  id: localStorage.getItem('id')
+  id: localStorage.getItem("id"),
 };
 
 export const createUser = createAsyncThunk(
@@ -87,12 +87,12 @@ export const authSlice = createSlice({
         state.error = null;
         state.token = action.payload.token;
         state.id = action.payload.id;
-        console.log(action.payload.token)
+        console.log(action.payload.token);
       })
       .addCase(doLogin.rejected, (state, action) => {
         state.signingIn = false;
         state.error = true;
-      })
+      });
   },
 });
 
