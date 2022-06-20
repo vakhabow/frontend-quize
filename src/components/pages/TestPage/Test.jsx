@@ -98,7 +98,7 @@ const Test = ({ test, answers }) => {
                 Попробовать еще раз
               </button>
             </div>
-            <div className="comments">{<Comments />}</div>
+            <div className="comments">{<Comments test ={test} />}</div>
           </div>
         ) : (
           <div className="quiz">

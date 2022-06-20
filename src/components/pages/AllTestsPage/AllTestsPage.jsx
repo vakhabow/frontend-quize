@@ -43,7 +43,7 @@ const AllTestsPage = () => {
               <Link to={`/testdescription/${test._id}`}>
                 {test.testName}
               </Link>
-              <button onClick={() => handleAddFavorite(test._id)}>добавить в избранное</button>
+              <button onClick={() => handleAddFavorite(test)}>добавить в избранное</button>
             </div>
           );
         })}

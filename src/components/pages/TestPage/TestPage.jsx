@@ -17,7 +17,6 @@ const TestPage = () => {
 
   const tests = useSelector((state) => state.test.tests);
   const profile = useSelector(state => state.test);
-  console.log(profile);
 
   return tests.map((test) => {
     if (test._id === id) {
