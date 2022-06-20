@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './Header.module.css';
 import { BiSearch, BiUser } from 'react-icons/bi';
-import Sidebar from '../Sidebar/index';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { profileFetch } from '../../feateures/profileSlice';
 import { useDispatch } from 'react-redux';
+import Sidebar from '../Sidebar';
 
 const Header = () => {
 

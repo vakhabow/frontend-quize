@@ -67,6 +67,7 @@ console.log(user);
                 {test.testName}
               </Link>
                 <BsBookmark className="star" onClick={() => handleAddFavorite(test._id)}/>
+              <button onClick={() => handleAddFavorite(test)}>добавить в избранное</button>
             </div>
           );
         })}

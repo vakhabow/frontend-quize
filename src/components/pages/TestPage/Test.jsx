@@ -98,7 +98,7 @@ const Test = ({ test, answers }) => {
               <Link to={"/tests"} className='back-tests'>К тестам</Link>
               </div>
             </div>
-            <div className="comments">{<Comments />}</div>
+            <div className="comments">{<Comments test ={test} />}</div>
           </div>
         ) : (
           <div className="quiz">
