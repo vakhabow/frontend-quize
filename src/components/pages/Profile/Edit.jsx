@@ -19,7 +19,7 @@ const Edit = () => {
   const handleExit = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("id");
-    navigate('/signup');
+    navigate('/signin');
   };
 
   useEffect(() => {

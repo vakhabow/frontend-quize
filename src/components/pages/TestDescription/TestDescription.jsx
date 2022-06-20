@@ -23,9 +23,9 @@ const TestDescription = () => {
   }, [dispatch, id]);
 
   return (
-    <div className="test-desctiption">
+    <div className="test-wrapper">
       {/* <Header /> */}
-      {test.map((item) => {
+      {test?.map((item) => {
         if (item._id === id) {
           return (
             <Description

@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './testDescription.css';
 
 const Description = ({testName, description, id}) => {
     return (
-        <div>
+        <div className='description_wrap'>
             <div className="test_info">
-            <div className="test_name">{testName}</div>
+            <div className="test_text">{testName}</div>
             <div className="test_description">{description}</div>
-            <button><Link to={`/test/${id}`}>Начать тест</Link></button>
+            <div className='link_buttons'>
+            <Link to={`/test/${id}`} className='start'>Начать тест</Link>
+            <Link to={`/tests`} className='start'>К тестам</Link>
+            </div>
           </div>
         </div>
     );
