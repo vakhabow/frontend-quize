@@ -38,9 +38,11 @@ console.log(user);
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 3
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true
   }
 
 
@@ -52,9 +54,11 @@ console.log(user);
         <Slider {...settings}>
         {categories.map((category) => {
           return (
+            <div className="cat_wrapper">
             <Link key={category._id} to={`/category/${category._id}`} className='nav_link'>
               {category.title}
             </Link>
+            </div>
           );
         })}
         </Slider>
@@ -66,8 +70,7 @@ console.log(user);
               <Link to={`/testdescription/${test._id}`} className='tests_link'>
                 {test.testName}
               </Link>
-                <BsBookmark className="star" onClick={() => handleAddFavorite(test._id)}/>
-              <button onClick={() => handleAddFavorite(test)}>добавить в избранное</button>
+                <BsBookmark className="star" onClick={() => handleAddFavorite(test)}/>
             </div>
           );
         })}

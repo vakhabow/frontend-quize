@@ -32,6 +32,9 @@ const Comments = ({ test }) => {
       </form>
     </div>
       {comments.map((item) => {
+        if (id === test._id) {
+          
+        }
         return (
             
               <div key={item._id}>{item.text}</div>
